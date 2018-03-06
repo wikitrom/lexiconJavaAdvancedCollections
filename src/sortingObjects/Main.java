@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import performance.TitleSort;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -30,11 +32,22 @@ public class Main {
 			System.out.println(nextBook);
 		}
 
+		// Sort using defined Comparator
+		// provided TitleSort class
 		System.out.println();
-		System.out.println("Sorted books");
+		System.out.println("Sorted books - using TitelSort class");
 		System.out.println("=================================================================");
+		Collections.sort(books, new TitleSort());  
 
-		Collections.sort(books);   // uncomment suitable compareTo() in Book.java
+		for (Book nextBook : books) {
+			System.out.println(nextBook);
+		}
+		
+		
+		System.out.println();
+		System.out.println("Sorted books - using own ReverseTitleComparator class");
+		System.out.println("=================================================================");
+		Collections.sort(books, new ReverseTitleComparator());  
 
 		for (Book nextBook : books) {
 			System.out.println(nextBook);
