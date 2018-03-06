@@ -37,17 +37,31 @@ public class Main {
 		System.out.println();
 		System.out.println("Sorted books - using TitelSort class");
 		System.out.println("=================================================================");
-		Collections.sort(books, new TitleSort());  
+		Collections.sort(books, new TitleSort());
 
 		for (Book nextBook : books) {
 			System.out.println(nextBook);
 		}
-		
-		
+
 		System.out.println();
 		System.out.println("Sorted books - using own ReverseTitleComparator class");
 		System.out.println("=================================================================");
-		Collections.sort(books, new ReverseTitleComparator());  
+		Collections.sort(books, new ReverseTitleComparator());
+		for (Book nextBook : books) {
+			System.out.println(nextBook);
+		}
+
+		System.out.println();
+		System.out.println("Sorted books - sort on id using comparator defined as anonymous inner class");
+		System.out.println("=================================================================");
+		Collections.sort(books, new Comparator<Book>() {
+
+			@Override
+			public int compare(Book o1, Book o2) {
+				return o1.getId() - o2.getId();
+			}
+
+		});
 
 		for (Book nextBook : books) {
 			System.out.println(nextBook);
